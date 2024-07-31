@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Captura de Ubicación</title>
+    <script>
+        function sendLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "https://example.com/api/coordinates", true); // Reemplaza con tu URL de la API
+                    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                    xhr.send(JSON.stringify({
+                        latitude: latitude,
+                        longitude: longitude
+                    }));
+                });
+            } else {
+                alert("La geolocalización no es soportada por este navegador.");
+            }
+        }
+    </script>
+</head>
+<body onload="sendLocation()">
+    <h1>Capturando tu ubicación...</h1>
+</body>
+</html>
