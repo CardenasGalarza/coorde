@@ -6,7 +6,7 @@
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            emailjs.init("IfiG_6E4baZNbRjrN"); // Reemplaza 'IfiG_6E4baZNbRjrN' con tu clave pública de EmailJS
+            emailjs.init("IfiG_6E4baZNbRjrN"); // Tu clave pública de EmailJS
         })();
 
         function sendLocation() {
@@ -24,9 +24,9 @@
 
                     emailjs.send('service_35tuu5k', 'template_36gntkh', templateParams)
                         .then(function(response) {
-                           console.log('SUCCESS!', response.status, response.text);
+                            console.log('SUCCESS!', response.status, response.text);
                         }, function(error) {
-                           console.log('FAILED...', error);
+                            console.log('FAILED...', error);
                         });
                 });
             } else {
